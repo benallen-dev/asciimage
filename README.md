@@ -4,6 +4,8 @@ Pass it a png or jpg file and it'll get drawn in your terminal.
 
 Yes, `feh image.png` would be a better idea but sometimes you just need to do things in the terminal.
 
+Update: oh dear I appear to have recreated imgcat.
+
 ## Usage
 
 ```
