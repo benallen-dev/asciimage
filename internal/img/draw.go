@@ -10,14 +10,19 @@ func Draw(img image.Image) {
 	w := s.X
 	h := s.Y
 
-	for y := 0; y < h; y++ {
+	for y := 0; y < h; y = y + 2 {
 		for x := 0; x < w; x++ {
-			r, g, b, _ := img.At(x, y).RGBA()
-			r = r >> 8 // Move color to 8bpp
-			g = g >> 8
-			b = b >> 8
+			rt, gt, bt, _ := img.At(x, y).RGBA()
+			rt = rt >> 8 // Move color to 8bpp
+			gt = gt >> 8
+			bt = bt >> 8
 
-			fmt.Printf("\033[38;2;%d;%d;%dm██\033[0m", r, g, b)
+			rb, gb, bb, _ := img.At(x, y+1).RGBA()
+			rb = rb >> 8 // Move color to 8bpp
+			gb = gb >> 8
+			bb = bb >> 8
+
+			fmt.Printf("\033[48;2;%d;%d;%dm\033[38;2;%d;%d;%dm▄\033[0m", rt, gt, bt, rb, gb, bb)
 		}
 		fmt.Println()
 	}

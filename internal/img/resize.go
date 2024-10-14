@@ -11,7 +11,7 @@ func Resize(img image.Image, w, h int) image.Image {
 	// The command prompt takes two lines, so we need to subtract 2 from the height
 	h = h - 2
 
-	s := 1.0
+	s := 2.0 // Scale by 2 because one character is 2 pixels tall
 	w = int(math.Floor(float64(w)*s))
 	h = int(math.Floor(float64(h)*s))
 
